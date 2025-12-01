@@ -23,24 +23,28 @@ void main() async {
       }
       else if(dial > 99) {
         password += (dial/100).round();
-        print("adding  ${(dial/100).round()}");
+        print("R value = $dial adding ${(dial/100).floor()} ");
         dial = dial%100;
+        if( dial == 0) {
+          password -= 1;
+        }
       }
     } else if (direction == "L") {
       dial = dial - times;
       if(dial < 0) {
         if (-dial >100) {
-          print("value = $dial adding ${-(dial/100).round()} ");
+          print("L value = $dial adding ${-(dial/100).round()} ");
 
           password += -(dial/100).round();
         } else {
-          print("value = $dial adding 1 ");
+          print("L value = $dial adding 1 ");
 
           password += 1;
         }
-        password += -(dial/100).round();
-        print("adding  ${((-dial)/100).round() + 1} ");
         dial = dial%100;
+        if(dial == 0) {
+          password -= 1;
+        }
       }
     }
     if(dial == 0) {
